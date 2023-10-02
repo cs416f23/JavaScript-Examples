@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Auto counter with an interval</title>
+</head>
+<body>
+
+    <h1>0</h1>
+    <button>Start</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+
+    <script>
+        let timer;
+        let current = "start";
+
+        $('button').click(function () {
+            if (current === "start") {
+                timer = setInterval(increment, 1000);
+                current = "stop";
+                $('button').text("Stop");
+            } else if (current === "stop"){
+                 clearInterval(timer);
+                 current = "start";
+                $('button').text("Start");
+            }
+        });
+
+        let counter = 0;
+        function increment() {
+            $('h1').text(++counter);
+        }
+
+    </script>
+
+</body>
+</html>

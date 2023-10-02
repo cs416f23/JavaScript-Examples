@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Example</title>
+</head>
+<body>
+
+   <h1>$<span id="amount">1</span></h1>
+   <button id="plus">+</button>
+   <button id="minus">-</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+
+    <script>
+
+        let amount = 1;
+        $('#amount').text(amount);
+
+        // Increment the amount when + button is clicked
+        $('#plus').click(function() {
+            $('#amount').text(++amount);
+        });
+
+        // Decrement the amount when - button is clicked
+        $('#minus').click(function() {
+            if(amount > 1) {
+                $('#amount').text(--amount);
+            }
+        });
+
+    </script>
+
+</body>
+</html>
