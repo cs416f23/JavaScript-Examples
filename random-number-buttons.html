@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery: Random Number Buttons</title>
+</head>
+<body>
+
+<h1>Random Number Buttons</h1>
+<div id="button-container"></div>
+<div id="feedback"></div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+
+<script>
+    const numberOfButtons = 5;
+
+    // this for loop generates 5 buttons and place them in the specified div container above
+    for (let i = 0; i < numberOfButtons; i++) {
+        // Generate a random number
+        const randomNumber = generateRandomNumber();
+        // Create a new button, and put the randomNumber as text content on it
+        const button = $('<button>').text(randomNumber);
+        // set an event listener for click event, when the button is clicked
+        // it calls our handleButtonClick function and pass the randomNumber
+        button.click(function () {
+            handleButtonClick(randomNumber);
+        });
+        // Append the button the container
+        $('#button-container').append(button).append(" ");
+    }
+
+    // Function to generate random number between 0 (exclusive) and 9 (exclusive)
+    function generateRandomNumber() {
+        return Math.floor(Math.random() * 10);
+    }
+
+    // Function to handle button click event
+    function handleButtonClick(selectedNumber) {
+        $('#feedback').text(`You clicked ${selectedNumber}`);
+    }
+    
+</script>
+
+
+</body>
+</html>
